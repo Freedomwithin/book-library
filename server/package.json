@@ -1,0 +1,21 @@
+{
+  "name": "book-library-server",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "apollo-server-express": "^3.0.0",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.17.1",
+    "graphql": "^15.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^6.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
