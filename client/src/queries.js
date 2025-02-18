@@ -51,6 +51,11 @@ export const GET_ME = gql`
     }
   }
 `;
+export const REMOVE_BOOK = gql`
+  mutation RemoveBook($id: ID!) {
+    deleteBook(id: $id)
+  }
+`;
 
 // Remove the duplicate GET_BOOKS declaration
 // export const GET_BOOKS = gql`
