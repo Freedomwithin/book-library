@@ -167,6 +167,18 @@ const resolvers = {
         throw new Error(error.message || "Failed to log in");
       }
     },
+    logout: (_, __, { user }) => {
+      // Check if the user is authenticated
+      if (!user) {
+        throw new Error('User is not authenticated');
+      }
+
+      // Implement your logout logic here
+      // For example, you can clear the user's session or token from the context or database
+
+      // After the logout operation, return true to indicate success
+      return true;
+    },
   },
 };
 

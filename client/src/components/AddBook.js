@@ -1,63 +1,73 @@
-import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
-import { ADD_BOOK, GET_BOOKS } from '../queries';
+import { useMutation } from '@apollo/client';
+import { ADD_BOOK } from '../queries';
+import './AddBook.css'; // New CSS file
 
-function AddBook() {
+const AddBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [addBook, { loading, error }] = useMutation(ADD_BOOK, {
-    refetchQueries: [{ query: GET_BOOKS }],
-    onError: (error) => {
-      console.error('Error adding book:', error);
-      console.error('GraphQL Errors:', error.graphQLErrors);
-      console.error('Network Error:', error.networkError);
-    }
-  });
+  const [addBook] = useMutation(ADD_BOOK);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Submitting book:', { title, author });
-    try {
-      const result = await addBook({ variables: { title, author } });
-      console.log('Book added successfully:', result);
-      setTitle('');
-      setAuthor('');
-    } catch (err) {
-      console.error('Error in handleSubmit:', err);
-    }
+    addBook({ variables: { title, author } });
+    setTitle('');
+    setAuthor('');
   };
 
   return (
-    <div>
-      <h2>Add a New Book</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          required
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Adding...' : 'Add Book'}
-        </button>
-      </form>
-      {error && (
-        <div style={{ color: 'red' }}>
-          <p>Error: {error.message}</p>
-          <p>GraphQL Errors: {JSON.stringify(error.graphQLErrors)}</p>
-          <p>Network Error: {JSON.stringify(error.networkError)}</p>
+    <div className="add-book-container">
+      <header>
+        <nav>
+          <div className="container">
+            <a href="/" className="logo">Book Library</a>
+            <ul className="nav-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/books">Books</a></li>
+              <li><a href="/add-book">Add Book</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <section id="add-book" className="container add-book-section">
+        <h2>Add a New Book</h2>
+        <p className="section-intro">Add a new book to your library collection.</p>
+
+        <div className="add-book-form">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="title">Title:</label>
+              <input
+                type="text"
+                id="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="author">Author:</label>
+              <input
+                type="text"
+                id="author"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+                required
+              />
+            </div>
+            <button type="submit" className="submit-btn">Add Book</button>
+          </form>
         </div>
-      )}
+      </section>
+
+      <footer className="footer bg-dark text-white text-center">
+        <div className="container">
+          <p>&copy; 2025 Book Library</p>
+        </div>
+      </footer>
     </div>
   );
-}
+};
 
 export default AddBook;

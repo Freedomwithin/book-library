@@ -26,3 +26,17 @@ module.exports = {
   getUser,
   generateToken
 };
+
+// auth.js
+
+let tokens = []; // In a real-world application, you would use a database or a more secure storage
+
+const logout = (token) => {
+  tokens = tokens.filter(t => t !== token);
+};
+
+module.exports = {
+  getUser,
+  generateToken,
+  logout
+};

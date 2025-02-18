@@ -24,6 +24,7 @@ const typeDefs = gql`
     deleteBook(id: ID!): Boolean!
     signup(username: String!, password: String!): AuthPayload
     login(username: String!, password: String!): AuthPayload
+    logout: Boolean!
   }
 
   type AuthPayload {

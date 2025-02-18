@@ -43,20 +43,20 @@ function App() {
   };
 
   if (loading) return <p>Loading...</p>;
-  
+
   return (
     <div className="App">
       <Routes>
         <Route path="/login" element={<Login refetch={handleLogin} />} />
         <Route path="/signup" element={<Signup refetch={handleLogin} />} />
-        <Route 
-          path="/books" 
+        <Route
+          path="/books"
           element={isLoggedIn ? (
             <>
               <AddBook />
               <BookList />
             </>
-          ) : <Navigate to="/login" />} 
+          ) : <Navigate to="/login" />}
         />
         <Route path="/" element={<Navigate to={isLoggedIn ? "/books" : "/login"} />} />
       </Routes>

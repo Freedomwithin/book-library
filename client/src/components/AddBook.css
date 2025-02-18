@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9; /* Lighter background for a clean look */
+  line-height: 1.6;
+  color: #333; /* Default text color */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background-color: #1a1a1a; /* Darker shade for a modern look */
+  color: #fff;
+  padding: 15px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px; /* Slightly larger for emphasis */
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex; /* Flexbox for better alignment */
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline; /* Subtle hover effect */
+}
+
+/* Add Book Section */
+.add-book-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 120px); /* Adjust for header and footer height */
+}
+
+.add-book-section {
+  padding: clamp(40px, 5vw, 80px); /* Responsive padding based on screen size */
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 36px); /* Responsive font size */
+  margin-bottom: clamp(20px, 3vw, 40px);
+}
+
+.section-intro {
+  font-size: clamp(1rem, 2.5vw, 18px); /* Responsive font size */
+   margin-bottom:auto}
+
+/* Form Styles */
+.add-book-form {background-color:auto}
+
+/* Form Elements */
+label {font-weight:auto;margin:auto}
+
+/* Input Styles */
+input[type="text"] {font-size-adjust:auto}
+
+/* Submit Button */
+.submit-btn:hover {color:#0056b3}
+
+/* Footer */
