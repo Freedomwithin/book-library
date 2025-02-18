@@ -9,7 +9,11 @@ const resolvers = {
       if (!db) throw new Error('Database connection not available');
       try {
         const books = await db.collection('books').find().toArray();
-        return books || [];
+        return books.map(book => ({
+          id: book._id.toString(),
+          title: book.title,
+          author: book.author
+        }));
       } catch (error) {
         console.error("Error fetching books:", error);
         return [];

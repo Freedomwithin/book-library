@@ -43,7 +43,6 @@ export const SIGNUP = gql`
     }
   }
 `;
-
 export const GET_ME = gql`
   query GetMe {
     me {
@@ -52,3 +51,14 @@ export const GET_ME = gql`
     }
   }
 `;
+
+// Remove the duplicate GET_BOOKS declaration
+// export const GET_BOOKS = gql`
+//   query GetBooks {
+//     books {
+//       id
+//       title
+//       author
+//     }
+//   }
+// `;
