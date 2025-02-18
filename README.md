@@ -39,7 +39,7 @@ The project is divided into two main directories:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/book-library.git
+   git clone https://github.com/Freedomwithin/book-library.git
    cd book-library
 2. Install dependencies for both client and server:
     ```bash
